@@ -1,0 +1,51 @@
+.item
+{
+    height: 20vh;
+    width: 10vw;
+    border: 1px solid transparent;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-shadow: 1px 1px 1px 1px black; 
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transition-delay: 5ms;
+
+  }
+.item:hover
+{
+    box-shadow: 4px 4px #405751;
+
+}
+.glyphicon.glyphicon-trash
+{
+  float:right;
+}
+.row
+{
+  padding-top: 50px;
+  padding-right: 100px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}
+
+#tile{
+  margin-left:50px;
+}
+.btn
+{
+  width:10px;
+  position: relative;
+  float: right;
+  
+}
+.button
+{
+  
+  width:100px;
+  position: relative;
+  float: right;
+}

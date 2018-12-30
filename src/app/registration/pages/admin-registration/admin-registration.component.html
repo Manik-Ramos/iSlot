@@ -1,0 +1,115 @@
+<div class="heading">
+  <div class="row">
+    <div class="col-lg-2">
+      <a class="navbar-brand" routerLink="/">iSlot</a>
+    </div>
+    <div class="col-lg-8">
+      <h2> Admin Registration </h2>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="container-fluid">
+      <br>
+      <div class="col-lg-4">
+      </div>
+
+      <div class="col-lg-4" id="centerContent">
+        <br>
+        <form [formGroup]="adminFormGroup" #formData="ngForm" (ngSubmit)="onSubmit(formData)">
+          <div class="row">
+            <div class="col-lg-2">
+              <label for="name">Name:</label>
+            </div>
+
+            <div class="col-lg-2" id="textField">
+              <div class="fieldname">
+                <input type="text" class="form-control" autocomplete="off" name="name" id="name" formControlName="name" placeholder="Enter name">
+                <div id="nameError" class="alert alert-danger" *ngIf="adminFormGroup.get('name').touched && adminFormGroup.get('name').errors">Please enter your name</div>
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-lg-2">
+              <label for="email">Email:</label>
+            </div>
+
+            <div class="col-lg-2" id="textField">
+              <div class="fieldname">
+                <input type="text" class="form-control" autocomplete="off" id="email" ngModel name="email" formControlName="email" placeholder="Enter Email-id">
+                <div id="emailError" class="alert alert-danger" *ngIf="adminFormGroup.get('email').touched && adminFormGroup.get('email').errors">Please enter virtusa email-id</div>
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-lg-2">
+              <label for="password">Password:</label>
+            </div>
+
+            <div class="col-lg-2" id="textField">
+              <div class="fieldname">
+                <input type="password" class="form-control" autocomplete="off" id="password" ngModel name="password" formControlName="password"
+                  placeholder="Enter Password">
+                <div id="passwordError" class="alert alert-danger" *ngIf="adminFormGroup.get('password').touched && adminFormGroup.get('password').errors">Please enter Password</div>
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-lg-2">
+              <label for="mobile">Mobile:</label>
+            </div>
+
+            <div class="col-lg-2" id="textField">
+              <div class="fieldname">
+                <input type="text" class="form-control" autocomplete="off" id="mobile" name="mobile" formControlName="mobile" placeholder="Enter mobile number">
+                <div id="mobileError" class="alert alert-danger" *ngIf="adminFormGroup.get('mobile').touched && adminFormGroup.get('mobile').errors">Please enter mobile number starting with 9 or 8</div>
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-lg-2">
+              <label for="location">Location:</label>
+            </div>
+
+            <div class="col-lg-2" id="textField">
+              <div class="fieldname">
+                <select id="location" class="forms-group form-control" formControlName="location" name="location" placeholder="Select location">
+                    <option *ngFor="let key of locationArray">
+                      {{key.id}}.{{key.name}}
+                    </option>
+                </select>
+                <div id="locationError" class="alert alert-danger" *ngIf="adminFormGroup.get('location').touched && adminFormGroup.get('location').errors">Please select the location!!</div>
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-lg-2" id="resetButton">
+              <button type="reset" class="btn btn-primary">Reset</button>
+            </div>
+
+            <div class="col-lg-2">
+              <button type="submit" class="btn btn-primary" id="submitting" [disabled]="adminFormGroup.invalid">Create My Account</button>
+            </div>
+          </div>
+          <br>
+        </form>
+      </div>
+
+      <div class="col-lg-4">
+      </div>
+      <br>
+    </div>
+  </div>
+</div>

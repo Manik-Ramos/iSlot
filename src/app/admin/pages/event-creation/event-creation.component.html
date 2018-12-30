@@ -1,0 +1,206 @@
+
+<div class="heading">
+  <div class="row">
+    <div class="col-lg-2">
+      <a class="navbar-brand" routerLink="/admin">iSlot</a>
+    </div>
+    <div class="col-lg-8">
+      <h1> Drive Registration </h1>
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="container">
+  <form [formGroup]="eventFormGroup" #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+    <div class="row">
+      <div class="col-lg-3">
+        <label for="name">Event name:</label>
+      </div>
+      <div class="col-lg-6">
+        <div class="fieldname">
+          <input type="text" autocomplete="off" class="form-control" name="name" (ngmodel)="name" id="name" formControlName="name"
+            placeholder="Enter event name">
+        </div>
+        <div id="enameError" class="alert alert-danger" *ngIf="eventFormGroup.get('name').touched && eventFormGroup.get('name').errors">Please enter the event name!!</div>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <label for="description">Description:</label>
+      </div>
+      <div class="col-lg-6">
+        <div class="fieldname">
+          <input type="text" autocomplete="off" class="form-control" name="description" (ngmodel)="description" id="description" formControlName="description"
+            placeholder="Enter event description">
+        </div>
+        <br>
+        <div id="edescError" class="alert alert-danger" *ngIf="eventFormGroup.get('description').touched && eventFormGroup.get('description').errors">Please enter the event description!!</div>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <label for="event_date">Event date:</label>
+      </div>
+      <div class="col-lg-6">
+        <div class="fieldname">
+          <input type="date" autocomplete="off" class="form-control" data-date="" data-date-format="DD MM YYYY" id="event_date" name="event_date"
+            (ngmodel)="event_date" formControlName="event_date" placeholder="Enter event date">
+        </div>
+        <div id="edateError" class="alert alert-danger" *ngIf="eventFormGroup.get('event_date').touched && eventFormGroup.get('event_date').errors">Please select the event date!!</div>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <label for="start_time">Start Time:</label>
+      </div>
+      <div class="col-lg-6">
+        <div class="fieldname">
+          <input type="text" autocomplete="off" class="form-control" id="start_time" name="start_time" (ngmodel)="start_time" id="start_time"
+            formControlName="start_time" placeholder="Enter event start time">
+        </div>
+        <div id="start_timeError" class="alert alert-danger" *ngIf="eventFormGroup.get('start_time').touched && eventFormGroup.get('start_time').errors">Please enter the event start time!!</div>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <label for="end_time">End Time:</label>
+      </div>
+      <div class="col-lg-6">
+        <div class="fieldname">
+          <input type="text" autocomplete="off" class="form-control" id="end_time" name="end_time" (ngmodel)="end_time" id="end_time"
+            formControlName="end_time" placeholder="Enter event end time">
+        </div>
+        <div id="end_timeError" class="alert alert-danger" *ngIf="eventFormGroup.get('end_time').touched && eventFormGroup.get('end_time').errors">Please enter the event end time!!</div>
+      </div>
+    </div>
+    <br>
+
+    <div *ngIf="eventFormGroup.get('start_time').valid && eventFormGroup.get('end_time').valid">
+      <div>
+        <label>Slot 1:</label>
+        <div class="row">
+          <div class="col-lg-4">
+            <label style="margin-left:50px;" for="slot1StartTime">Start Time</label>
+            <input autocomplete="off" class="form-control" (ngmodel)="slot1StartTime" type="text" formControlName="slot1StartTime" name="slot1StartTime"
+              id="slot1StartTime">
+          </div>
+          <div class="col-lg-4">
+
+          </div>
+          <div class="col-lg-4">
+            <label for="slot1EndTime">End Time</label>
+            <input autocomplete="off" class="form-control" (ngmodel)="slot1EndTime" type="text" formControlName="slot1EndTime" name="slot1EndTime"
+              id="slot1EndTime">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label>Slot 2:</label>
+        <div class="row">
+          <div class="col-lg-4">
+            <label style="margin-left:50px;" for="slot2StartTime">Start Time</label>
+            <input autocomplete="off" class="form-control" type="text" formControlName="slot2StartTime" name="slot2StartTime" id="slot2StartTime">
+          </div>
+          <div class="col-lg-4">
+
+          </div>
+          <div class="col-lg-4">
+            <label for="slot2EndTime">End Time</label>
+            <input autocomplete="off" class="form-control" type="text" formControlName="slot2EndTime" name="slot2EndTime" id="slot2EndTime">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label>Slot 3:</label>
+        <div class="row">
+          <div class="col-lg-4">
+            <label style="margin-left:50px;" for="slot3StartTime">Start Time</label>
+            <input autocomplete="off" class="form-control" type="text" formControlName="slot3StartTime" name="slot3StartTime" id="slot3StartTime">
+          </div>
+          <div class="col-lg-4">
+
+          </div>
+          <div class="col-lg-4">
+            <label for="slot3EndTime">End Time</label>
+            <input autocomplete="off" class="form-control" type="text" formControlName="slot3EndTime" name="slot3EndTime" id="slot3EndTime">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label>Slot 4:</label>
+        <div class="row">
+          <div class="col-lg-4">
+            <label style="margin-left:50px;" for="slot4StartTime">Start Time</label>
+            <input autocomplete="off" class="form-control" type="text" formControlName="slot4StartTime" name="slot4StartTime" id="slot4StartTime">
+          </div>
+          <div class="col-lg-4">
+
+          </div>
+          <div class="col-lg-4">
+            <label for="slot4EndTime">End Time</label>
+            <input autocomplete="off" class="form-control" type="text" formControlName="slot4EndTime" name="slot4EndTime" id="slot4EndTime">
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <label for="location">Location:</label>
+      </div>
+      <div class="col-lg-6">
+        <div class="fieldname">
+          <select id="location" class="forms-group form-control" formControlName="location" name="location" (ngmodel)="location">
+            <option value="Hyderabad" default>Hyderabad</option>
+            <option value="chennai">chennai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Pune">Pune</option>
+            <option value="Gurgaon">Gurgaon</option>
+          </select>
+        </div>
+        <div id="locationError" class="alert alert-danger" *ngIf="eventFormGroup.get('location').touched && eventFormGroup.get('location').errors">Please select the location!!</div>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <label for="skills">Skills:</label>
+      </div>
+      <div class="col-lg-6">
+        <div class="fieldname">
+          <select multiple id="skills" class="form-control" class="forms-group" formControlName="skills" name="skills" (ngmodel)="skills"> 
+            <option value="javascript">JavaScript</option> 
+            <option value="angular">Angular</option> 
+            <option value="react">React</option> 
+            <option value="java">Java</option> 
+          </select>
+        </div>
+        <div id="skillsError" class="alert alert-danger" *ngIf="eventFormGroup.get('skills').touched && eventFormGroup.get('skills').errors">Please select the skills!!</div>
+      </div>
+    </div>
+    <br>
+
+    <div>
+      <span> <b>* To select multiple skills ctrl + click</b></span>
+    </div>
+    <div>
+      <button type="reset" class="btn btn-primary">Reset</button>
+      <button type="submit" class="btn btn-primary" id="submitting" [disabled]="eventFormGroup.invalid">Create Event</button>
+    </div>
+
+  </form>
+</div>

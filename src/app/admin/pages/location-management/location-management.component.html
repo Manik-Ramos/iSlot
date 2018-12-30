@@ -1,0 +1,60 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid" id="tile">
+    <div class="navbar-header">
+          <a class="navbar-brand" href="#">iSlot</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-option-vertical"></span></a></li>
+    </ul>
+  </div>
+</nav>
+<form [formGroup]="location1" #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+<div class="form-group">
+    <input type="text" class="form-control" id="name" name="name" (ngmodel)="name" formControlName="name" placeholder="Add a new location">
+    <!-- <div class="alert alert-danger" *ngIf="location.get('name').touched && location.get('name').invalid">Please enter the location 
+    </div> -->
+    <input class="button" type="submit" value="Add">
+    </div>
+   
+        
+    
+
+   <div class="row">
+      <div class="item col-lg-3" id="tile"  *ngFor="let key of newarray"  >
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-trash"></span> 
+        </button>
+          <span>{{key.name}}</span>
+  
+      </div>
+      <div class="item col-lg-3" id="tile">
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-trash"></span>  
+        </button>
+        <span>Chennai</span>
+      </div>
+      <div class="item col-lg-3" id="tile">
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-trash"></span>  
+        </button>
+        <span>Gurgoan</span>
+      </div>
+   </div>
+
+
+   <div class="row">
+     <div class="item col-lg-3" id="tile">
+      <button type="button" class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-trash"></span> 
+      </button>
+      <span>Hyderabad</span>
+     </div>    
+     <div class="item col-lg-3" id="tile">
+      <button type="button" class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-trash"></span>  
+      </button>
+      <span>Pune</span>
+     </div> 
+    </div>
+
+      

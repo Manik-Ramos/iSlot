@@ -1,0 +1,89 @@
+.navbar-brand{
+    font-size:30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 'Ubuntu', sans-serif;
+  }
+  
+  .heading{
+    background-color:rgb(13, 32, 41);
+    height: 75px;
+  }
+  
+  .col-lg-8 {
+    text-align: center;
+    width:100%;
+  }
+  
+  h2 {
+    color: white;
+    text-align: center;
+    font-family: 'IM Fell English SC', serif;
+  }
+  
+  nav{
+    padding-left:20px;
+    padding-bottom: 20px;
+  }
+  .interviewerView{
+    border:2px solid black;
+    height:150px;
+    padding:10px;
+    margin:10px;
+   }
+   
+   #interName {
+     height: 100px;
+   }
+  .btn.btn-primary{
+    margin-top:7px;
+    margin-right: 15px;
+    margin-left: 10px;
+  }
+  
+  i{
+    font-size:25px;
+    padding-right: 15px;
+  }
+  input{
+    width:50px;
+  }
+  
+  .col-lg-4 {
+    height: 126px;
+  }
+  
+  #timeSlot {
+    text-align: center;
+    font-size: 30px;
+    vertical-align: 20px;
+  }
+  
+  .nav .nav-pills {
+    font-size: 20px;
+  }
+  
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+  
+  

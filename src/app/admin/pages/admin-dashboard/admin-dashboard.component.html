@@ -1,0 +1,101 @@
+<link href="https://fonts.googleapis.com/css?family=Spirax" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Spirax|Ubuntu" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Roboto+Mono|Spirax|Ubuntu" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Open+Sans+Condensed:300|PT+Sans+Narrow|Roboto+Mono|Spirax|Ubuntu" rel="stylesheet">
+<div class="heading">
+  <div class="row">
+    <div class="col-lg-3">
+      <a class="navbar-brand" routerLink="/admin">iSlot</a>
+    </div>
+    
+    <div class="col-lg-6">
+      <h2>Admin Dashboard</h2>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="col-lg-4">
+        <a routerLink="event-creation" data-toggle="tooltip" title="Create Event">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="col-lg-4">
+        <a routerLink="analytics" data-toggle="tooltip" title="View Analytics">
+            <span class="glyphicon glyphicon-cloud"></span>
+        </a>
+      </div>
+      <div class="col-lg-4">
+        <div class="dropdown" style="float:right;">
+          <a>
+            <button class="btn btn-primary dropdown-toggle" 
+                    type="button" 
+                    id="dropdownMenu1" 
+                    data-toggle="dropdown" 
+                    aria-haspopup="true" 
+                    aria-expanded="true">
+                      Menu
+                     <span class="caret"></span>
+            </button>
+          </a>
+          <div class="dropdown-content">
+            <a routerLink="skills-management">Skill Management</a>
+            <a routerLink="location-management">Location Management</a>
+            <a routerLink="/">Change Password</a>
+            <a (click)="signOut()" >Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row head">
+  <b>RECENT EVENTS</b>
+</div>
+
+<div class="row">
+  <div *ngFor="let key of recentArr">
+    <div class="card" id="recentEvents">
+      <div class="card-body">
+        <h5 class="card-title">{{key.name}}</h5>
+        <p class="card-text">
+          {{key.description}}
+        </p>
+        <p class="card-text">
+          <b>Event date: </b> {{key.event_date}}
+        </p>
+        <p class="card-text" style="color: green;">
+          <b>Start time: </b>{{key.start_time}}
+        </p>
+        <p class="card-text" style="color: red;">
+          <b>End time: </b>{{key.end_time}}</p>
+        <a routerLink="/admin/view-event/{{key.key}}" class="btn btn-primary" role="button">Update</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row head">
+  <b>UPCOMING EVENTS</b>
+</div>
+<div class="row">
+  <div *ngFor="let key of upcomingArr">
+    <div class="card" id="upcomingEvents">
+      <div class="card-body">
+        <h5 class="card-title">{{key.name}}</h5>
+        <p class="card-text">
+          {{key.description}}
+        </p>
+        <p class="card-text">
+          <b>Event date: </b> {{key.event_date}}
+        </p>
+        <p class="card-text" style="color: green;">
+          <b>Start time: </b>{{key.start_time}}
+        </p>
+        <p class="card-text" style="color: red;">
+          <b>End time: </b>{{key.end_time}}</p>
+        <a routerLink="/admin/view-event/{{key.key}}" class="btn btn-primary" role="button">View</a>
+      </div>
+    </div>
+  </div>
+</div>

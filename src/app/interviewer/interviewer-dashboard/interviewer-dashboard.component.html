@@ -1,0 +1,102 @@
+<div class="heading">
+  <div class="row">
+    <div class="col-lg-2">
+      <a class="navbar-brand" routerLink="/interviewer">iSlot</a>
+    </div>
+    <div class="col-lg-8">
+      <h2>Interviewer Dashboard</h2>
+    </div>
+
+    <div class="col-lg-2">
+      <div class="col-lg-4">
+        
+      </div>
+      <div class="col-lg-4">
+        
+      </div>
+      <div class="col-lg-4">
+        <div class="dropdown" style="float:right;">
+          <a>
+            <i class="fas fa-ellipsis-v dropbtn"></i>
+          </a>
+          <div class="dropdown-content">
+            <a routerLink="/">Change Password</a>
+            <a routerLink="/">Log Out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container1">
+  <div class="col-sm-8">
+    <h3> Recent Events</h3>
+    <br>
+    <div class="row">
+      <div *ngFor="let key of recentArr">
+        <div class="card" id="recent">
+          <div class="card-body">
+            <h5 class="card-title">{{key.name}}</h5>
+            <p class="card-text">
+              {{key.description}}
+            </p>
+            <p class="card-text">
+              <b>Event date: </b> {{key.event_date}}
+            </p>
+            <p class="card-text" style="color: green;">
+              <b>Start time: </b>{{key.start_time}}
+            </p>
+            <p class="card-text" style="color: red;">
+              <b>End time: </b>{{key.end_time}}</p>
+            <a routerLink="/interviewer/event-enrollment/{{key.key}}" class="btn btn-success" role="button">Update</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3> Upcoming Events</h3>
+    <br>
+    <div class="row">
+      <div *ngFor="let key of upcomingArr">
+        <div class="card" id="upcoming">
+          <div class="card-body">
+            <h5 class="card-title">{{key.name}}</h5>
+            <p class="card-text">
+              {{key.description}}
+            </p>
+            <p class="card-text">
+              <b>Event date: </b> {{key.event_date}}
+            </p>
+            <p class="card-text" style="color: green;">
+              <b>Start time: </b>{{key.start_time}}
+            </p>
+            <p class="card-text" style="color: red;">
+              <b>End time: </b>{{key.end_time}}</p>
+            <a routerLink="/interviewer/event-enrollment/{{key.key}}" class="btn btn-primary" role="button">Enroll</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <br>
+    <div class="item1">
+      <h2 class="glyphicon glyphicon glyphicon-flash"> Points Scored So Far </h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Total score</th>
+            <th>Score current month</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{totalScore}}</td>
+            <td>{{currentMonthScore}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

@@ -1,0 +1,71 @@
+.navbar-brand{
+    font-size:30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  nav{
+    padding-left:20px;
+    padding-bottom: 20px;
+  }
+  
+  .heading{
+    background-color:rgb(13, 32, 41);
+    height: 75px;
+  }
+  
+  .col-lg-8 {
+    text-align: center;
+    width:100%;
+  }
+  
+  h2 {
+    color: #23527c;
+    text-align: center;
+    font-family: 'IM Fell English SC', serif;
+  }
+    
+    .btn.btn-primary{
+      margin-top:7px;
+      margin-right: 15px;
+      margin-left: 70px;
+      
+    }
+    
+    i{
+      font-size:25px;
+      padding-right: 15px;
+    }
+    input{
+      border:2px solid black;
+      border-radius:50px;
+      width:50px;
+      margin-left:200px;
+    }
+  
+    #updateButton {
+      text-align: left;
+    }
+  
+    .card {
+      padding: 10px; 
+      border: 2px  solid gray;
+      border-radius: 6px;
+      height: 100px;
+      width: 1250px;
+    }
+  
+    .col-lg-3 {
+      text-align: center;
+      height: 34px;
+    }
+  
+    .btn.btn-danger:visited {
+      background: green;
+    }
+  
+    span {
+      font-size: 15px;
+    }

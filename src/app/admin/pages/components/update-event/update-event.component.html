@@ -1,0 +1,68 @@
+<div class="heading">
+  <div class="row">
+    <div class="col-lg-2">
+      <a class="navbar-brand" routerLink="/admin">iSlot</a>
+    </div>
+
+    <div class="col-lg-6">
+      <h2>{{eventToBeViewed[0].name}}</h2>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <ul class="nav nav-tabs">
+      <li role="presentation">
+        <a routerLink="/admin/view-event">View</a>
+      </li>
+      <li role="presentation" class="active">
+        <a routerLink="/admin/update-event">Update</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div class="outer-container">
+  <div *ngFor="let key of interviewerArray" class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-10">
+      <form>
+        <div class="row">
+          <div class="card">
+            <div class="card-body">
+              <div class="col-lg-3">
+                <b>{{key.name}}</b>
+              </div>
+              <div class="col-lg-6">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+                  <ul class="nav nav-pills" role="tablist">
+                    <li role="presentation"><span class="label label-info">{{key.email}}</span></li>
+                  </ul>
+                </div>
+                <div class="col-lg-4"></div>
+              </div>
+              <div class="col-lg-3">
+                <button type="button" class="btn btn-primary">Approve</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+      </form>
+    </div>
+    <div class="col-lg-1">
+    </div>
+  </div>
+
+
+  <div class="row" id="updateButton">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <button class="btn btn-success">Update</button>
+    </div>
+  </div>
+</div>

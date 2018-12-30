@@ -1,0 +1,68 @@
+<link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Open+Sans+Condensed:300|PT+Sans+Narrow|Roboto+Mono|Spirax|Ubuntu"
+rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lobster|Spirax" rel="stylesheet">
+
+
+<div class="heading">
+  <div class="row">
+    <div class="col-lg-2">
+      <a class="navbar-brand" routerLink="/">iSlot</a>
+    </div>
+    <div class="col-lg-8">
+      <h2>Login</h2>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="container-fluid">
+      <br>
+      <div class="col-lg-4">
+      </div>
+
+      <div class="col-lg-4" id="centerContent">
+        <br>
+        <form [formGroup]="loginFormGroup" #formData="ngForm" (ngSubmit)="onSubmit(formData)">
+          <div class="row">
+            <div class="col-lg-2">
+              <label for="email">Email address:</label>
+              <span class="glyphicon glyphicon-user"></span>
+            </div>
+            
+            <div class="col-lg-2" id="textField">
+              <div class="form-group">
+                <input type="email" ngModel formControlName="email" placeholder="Enter mail" name="email" autocomplete="off" class="form-control" id="email">
+                <div id="emailError" class="alert alert-danger" *ngIf="loginFormGroup.get('email').touched && loginFormGroup.get('email').errors">Please enter virtusa email-id</div>
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-lg-2">
+              <label for="pwd">Password:</label>
+              <span class="glyphicon glyphicon-lock"></span>
+            </div>
+            <div class="col-lg-2" id="textField">
+              <div class="form-group">
+                <input type="password" ngModel placeholder="Enter password" formControlName="password" autocomplete="off" class="form-control" id="password">
+                <div id="passwordError" class="alert alert-danger" *ngIf="loginFormGroup.get('password').touched && loginFormGroup.get('password').errors">Please enter Password</div>
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <div class="row" id="buttonStyle">
+            <button type="submit" [disabled]="formData.invalid" class="btn btn-primary">Submit</button>
+            <br>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-lg-4">
+      </div>
+      <br>
+    </div>
+  </div>
+</div>

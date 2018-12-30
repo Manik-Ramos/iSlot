@@ -1,0 +1,86 @@
+nav{
+    background-color:skyblue;
+    padding:10px;
+    text-align: center;
+    width:100%;
+  }
+  
+  .navbar-brand {
+    font-size:30px;
+    margin-top: 10px;
+    font-family: 'Spirax', cursive;
+  }
+  
+  .heading{
+    background-color:rgb(13, 32, 41);
+    height: 60px;
+  }
+  
+  .row {
+     width: 1583px;
+  }
+  
+  .container-fluid {
+    background-color: #44B6B8;
+    text-align: center;
+    margin: 0px;
+    width: 1520px;
+    height: 720px;
+  }
+  
+  button {
+    width: 150px;
+  }
+  
+  .col-lg-4 {
+    height: 41px;
+    width: 350px;
+  }
+  
+  .col-lg-8 {
+    text-align: center;
+  }
+  
+  h2 {
+    color: #23527c;
+    text-align: center;
+    font-family: 'IM Fell English SC', serif;
+  }
+  
+  img {
+    width: 600px;
+    height: 600px;
+  }
+  
+  marquee {
+    font-size: 25px;
+    font-family: 'Lobster', cursive;
+  }
+  
+  .hd {
+      text-align: center;
+      margin-left:450px;
+  }
+   
+  .btn.btn-primary{
+      margin-top:7px;
+      margin-right: 15px;
+      margin-left: 10px;
+  }
+  
+  .btn.btn-warning{
+    margin-top:7px;
+    margin-right: 15px;
+    margin-left: 10px;
+  }
+  
+  .btn.btn-danger{
+    margin-top:7px;
+    margin-right: 15px;
+    margin-left: 10px;
+  }
+    
+  i {
+      font-size:25px;
+      padding-right: 15px;
+  }

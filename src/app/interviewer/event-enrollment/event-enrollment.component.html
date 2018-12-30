@@ -1,0 +1,70 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="/interviewer">iSlot</a>
+    </div>
+  </div>
+</nav>
+<p style="color:red">{{eventName}}</p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Slot No</th>
+      <th>Slot Period</th>
+      <th></th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let index of slotArray">
+      <td>{{ index.slotId }}</td>
+      <td>{{ index.slotStartTime }} - {{ index.slotEndTime }}</td>
+      <td>
+        <label class="switch">
+          <input type="checkbox" (change)="enrollInterviewer($event,index.slotId)">
+          <span class="slider round"></span>
+        </label>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+<!-- <div class="panel panel-warning">
+  <div class="panel-heading">{{newArray.name}}</div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Slot No</th>
+          <th>No.of Interviewers</th>
+          <th></th>
+          <th>Total Interviews Taken</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let key of newArray.slots">
+        <tr>
+          <td>{{key.slotStartTime}} - {{key.slotEndTime}}</td>
+          <td><span class="label label-info">{{key.interviewers.length - 1}}</span></td>
+          <td>
+            <label class="switch">
+              <input type="checkbox" (change)="enrollInterviewer($event,key.slotId)">
+              <span class="slider round"></span>
+            </label>
+          </td>
+          <td>
+            <input type="number" class="form-control" id="ex1" type="text">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
+<div class="text-center">
+  <button type="button" class="btn btn-warning" id="update">Update</button>
+</div>
