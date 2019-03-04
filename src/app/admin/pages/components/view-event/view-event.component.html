@@ -1,22 +1,22 @@
+<link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Spirax|Ubuntu" rel="stylesheet">
 <div class="heading">
   <div class="row">
     <div class="col-lg-2">
       <a class="navbar-brand" routerLink="/admin">iSlot</a>
     </div>
     <div class="col-lg-6">
-      <h2>{{ eventToBeViewed[0].name }}</h2>
+      <h2>{{ eventName }}</h2>
     </div>
   </div>
 </div>
-
 <div class="row">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-inverse">
     <ul class="nav nav-tabs">
       <li role="presentation" class="active">
         <a routerLink="/admin/view-event">View</a>
       </li>
       <li role="presentation">
-        <a routerLink="/admin/update-event">Update</a>
+        <a routerLink="/admin/update-event/{{eventKey}}">Update</a>
       </li>
     </ul>
   </nav>
@@ -30,17 +30,32 @@
           <tr>
             <th>Slot Start Time</th>
             <th>Slot End Time</th>
-            <th>Interviewer Name</th>
+            <th>Interviewer Details</th>
             <th>Number of Interviewers</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let key2 of key.slots">
-            <td>{{key2.slotStartTime}}</td>
-            <td>{{key2.slotEndTime}}</td>
-            <td>{{key2.interviewers[0].name}}</td>
-            <td><span class="label label-info">{{key2.interviewers.length}}</span></td>
-            <td><a routerLink="/admin/update-event/{{key.key}}"><button class="btn btn-success">Update</button></a></td>
+            <td>{{ key2.slotStartTime }}</td>
+            <td>{{ key2.slotEndTime }}</td>
+            <td *ngIf="key2.interviewers.length > 0">
+              <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Name</th>
+                    <th>Interviews Taken</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let key3 of key2.interviewers">
+                    <td>{{ key3.name }}</td>
+                    <td>{{ key3.interviewsTaken }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td><span class="badge">{{key2.interviewers.length}}</span></td>
+            <!-- <td><a routerLink="/admin/update-event/{{key.key}}"><button class="btn btn-success">Update</button></a></td> -->
           </tr>
         </tbody>
       </table>

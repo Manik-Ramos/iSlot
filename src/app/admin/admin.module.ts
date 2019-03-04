@@ -13,8 +13,8 @@ import { ViewEventComponent } from './pages/components/view-event/view-event.com
 import { UpdateEventComponent } from './pages/components/update-event/update-event.component';
 import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
 import { EventService } from './event.service';
-import {LocationService} from './location.service';
-import {SkillsService} from './skills.service';
+import { LocationService } from './location.service';
+import { SkillsService } from './skills.service';
 
 import { ReactiveFormsModule } from '@angular/forms';
 

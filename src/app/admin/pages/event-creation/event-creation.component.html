@@ -1,17 +1,19 @@
-
+<link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Spirax|Ubuntu" rel="stylesheet">
 <div class="heading">
   <div class="row">
     <div class="col-lg-2">
       <a class="navbar-brand" routerLink="/admin">iSlot</a>
     </div>
     <div class="col-lg-8">
-      <h1> Drive Registration </h1>
+      <h2> Drive Registration </h2>
     </div>
   </div>
 </div>
 <br>
 
+
 <div class="container">
+  <div [innerHtml]="eventSuccess"></div>
   <form [formGroup]="eventFormGroup" #formData='ngForm' (ngSubmit)="onSubmit(formData)">
     <div class="row">
       <div class="col-lg-3">
@@ -164,11 +166,7 @@
       <div class="col-lg-6">
         <div class="fieldname">
           <select id="location" class="forms-group form-control" formControlName="location" name="location" (ngmodel)="location">
-            <option value="Hyderabad" default>Hyderabad</option>
-            <option value="chennai">chennai</option>
-            <option value="Bangalore">Bangalore</option>
-            <option value="Pune">Pune</option>
-            <option value="Gurgaon">Gurgaon</option>
+            <option *ngFor="let key of locations" value="{{key.name}}" default>{{ key.name }}</option>
           </select>
         </div>
         <div id="locationError" class="alert alert-danger" *ngIf="eventFormGroup.get('location').touched && eventFormGroup.get('location').errors">Please select the location!!</div>
@@ -183,10 +181,7 @@
       <div class="col-lg-6">
         <div class="fieldname">
           <select multiple id="skills" class="form-control" class="forms-group" formControlName="skills" name="skills" (ngmodel)="skills"> 
-            <option value="javascript">JavaScript</option> 
-            <option value="angular">Angular</option> 
-            <option value="react">React</option> 
-            <option value="java">Java</option> 
+            <option *ngFor="let key of skills" value="{{key.name}}">{{ key.name }}</option>
           </select>
         </div>
         <div id="skillsError" class="alert alert-danger" *ngIf="eventFormGroup.get('skills').touched && eventFormGroup.get('skills').errors">Please select the skills!!</div>
@@ -201,6 +196,5 @@
       <button type="reset" class="btn btn-primary">Reset</button>
       <button type="submit" class="btn btn-primary" id="submitting" [disabled]="eventFormGroup.invalid">Create Event</button>
     </div>
-
   </form>
 </div>

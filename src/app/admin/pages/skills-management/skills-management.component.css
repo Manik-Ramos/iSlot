@@ -1,48 +1,40 @@
-.item
-{
+.navbar-brand {
+  font-size: 30px;
+  margin: 10px 10px 0px 10px;
+  font-family: 'Ubuntu', sans-serif;
+}
+.heading {
+  color: #23527c;
+  text-align: center;
+  font-family: 'IM Fell English SC', serif;
+  background-color: rgb(13, 32, 41);
+}
+
+#tile {
+  margin-left: 50px;
+}
+
+.item {
     height: 20vh;
     width: 10vw;
+    margin: 10px 5px 10px 5px;
     border: 1px solid transparent;
-    background-color: white;
-    border-radius: 5px;
+    background-color: #44B6B8;
+    border-radius: 25px;
     text-align: center;
-    display: flex; 
+    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    box-shadow: 1px 1px 1px 1px black; 
-    transition-duration: 1s;
+    transition-duration: .5s;
     transition-timing-function: ease;
     transition-delay: 5ms;
-
-  }
-.item:hover
-{
-    box-shadow: 4px 4px #405751;
-
 }
 
-.row
-{
-  padding-top: 50px;
-  padding-right: 100px;
-  padding-bottom: 50px;
-  padding-left: 80px;
-}
-
-#tile{
-  margin-left:50px;
-}
-.btn
-{
-  width:10px;
+.btn {
+  width: 40px;
   position: relative;
-  float: right;
-
 }
-.button
-{
-  
-  width:100px;
-  position: relative;
-  float: right;
+
+.item:hover {
+    box-shadow: 4px 4px 4px 2px #4b4b4b;
 }

@@ -1,7 +1,17 @@
+<link href="https://fonts.googleapis.com/css?family=Spirax" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Spirax|Ubuntu" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Roboto+Mono|Spirax|Ubuntu" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Open+Sans+Condensed:300|PT+Sans+Narrow|Roboto+Mono|Spirax|Ubuntu"
+  rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
+
+
 <div class="heading">
   <div class="row">
     <div class="col-lg-2">
-      <a class="navbar-brand" routerLink="/interviewer">iSlot</a>
+      <a class="navbar-brand" routerLink="/interviewer" data-toggle="tooltip" title="Home">iSlot</a>
     </div>
     <div class="col-lg-8">
       <h2>Interviewer Dashboard</h2>
@@ -9,19 +19,23 @@
 
     <div class="col-lg-2">
       <div class="col-lg-4">
-        
+
       </div>
       <div class="col-lg-4">
-        
+
       </div>
       <div class="col-lg-4">
         <div class="dropdown" style="float:right;">
           <a>
-            <i class="fas fa-ellipsis-v dropbtn"></i>
+            <button class="btn btn-primary btn-group-justified dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="true">
+              Menu
+              <span class="caret"></span>
+            </button>
           </a>
           <div class="dropdown-content">
             <a routerLink="/">Change Password</a>
-            <a routerLink="/">Log Out</a>
+            <a (click)="signOut()">Logout</a>
           </div>
         </div>
       </div>
@@ -31,48 +45,41 @@
 
 <div class="container1">
   <div class="col-sm-8">
-    <h3> Recent Events</h3>
-    <br>
+    <div class="row head">
+      <b style="color:red;">RECENT EVENTS</b>
+    </div>
     <div class="row">
       <div *ngFor="let key of recentArr">
-        <div class="card" id="recent">
-          <div class="card-body">
-            <h5 class="card-title">{{key.name}}</h5>
-            <p class="card-text">
-              {{key.description}}
-            </p>
-            <p class="card-text">
-              <b>Event date: </b> {{key.event_date}}
-            </p>
-            <p class="card-text" style="color: green;">
-              <b>Start time: </b>{{key.start_time}}
-            </p>
-            <p class="card-text" style="color: red;">
-              <b>End time: </b>{{key.end_time}}</p>
-            <a routerLink="/interviewer/event-enrollment/{{key.key}}" class="btn btn-success" role="button">Update</a>
+        <div class="event">
+          <div>
+            <div class="box recentEvent">
+              <h3>{{ key.name }}</h3>
+              <p style="font-family:'Josefin Sans', sans-serif;">{{ key.description }}</p>
+              <p><b>Event Date: {{ key.event_date }}</b></p>
+              <p style="color: green;"><b>Start Time: {{ key.start_time }}</b></p>
+              <p style="color: red;"><b>End Time: {{ key.end_time }}</b></p>
+              <a routerLink="/admin/update-event/{{key.key}}" class="btn btn-primary" role="button">Update</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <h3> Upcoming Events</h3>
-    <br>
+
+    <div class="row head">
+      <b style="color:green;">UPCOMING EVENTS</b>
+    </div>
     <div class="row">
       <div *ngFor="let key of upcomingArr">
-        <div class="card" id="upcoming">
-          <div class="card-body">
-            <h5 class="card-title">{{key.name}}</h5>
-            <p class="card-text">
-              {{key.description}}
-            </p>
-            <p class="card-text">
-              <b>Event date: </b> {{key.event_date}}
-            </p>
-            <p class="card-text" style="color: green;">
-              <b>Start time: </b>{{key.start_time}}
-            </p>
-            <p class="card-text" style="color: red;">
-              <b>End time: </b>{{key.end_time}}</p>
-            <a routerLink="/interviewer/event-enrollment/{{key.key}}" class="btn btn-primary" role="button">Enroll</a>
+        <div class="event">
+          <div>
+            <div class="box upcomingEvent">
+              <h3>{{ key.name }}</h3>
+              <p style="font-family:'Josefin Sans', sans-serif;">{{ key.description }}</p>
+              <p><b>Event Date: {{ key.event_date }} </b></p>
+              <p style="color: green;"><b>Start Time: {{ key.start_time }} </b></p>
+              <p style="color: red;"><b>End Time: {{ key.end_time }} </b></p>
+              <a routerLink="/admin/view-event/{{key.key}}" class="btn btn-primary" role="button">View</a>
+            </div>
           </div>
         </div>
       </div>
@@ -82,7 +89,7 @@
   <div class="col-sm-4">
     <br>
     <div class="item1">
-      <h2 class="glyphicon glyphicon glyphicon-flash"> Points Scored So Far </h2>
+      <span class="glyphicon glyphicon glyphicon-fire"> <h2>Points Scored So Far </h2></span>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -99,4 +106,4 @@
       </table>
     </div>
   </div>
-  
+</div>

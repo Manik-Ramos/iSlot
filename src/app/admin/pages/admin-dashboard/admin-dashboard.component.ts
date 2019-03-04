@@ -13,8 +13,6 @@ export class AdminDashboardComponent implements OnInit {
   sortedArray;
   upcomingArr;
   recentArr;
-  sameDayEventsArr;
-  previousEventsArr;
   constructor(public eventService: EventService) {
 
     this.dataArr = [];
@@ -22,28 +20,28 @@ export class AdminDashboardComponent implements OnInit {
     this.recentArr = [];
     this.sortedArray = [];
     this.eventService.fetchData('events').subscribe((rsp) => {
-    this.data = rsp.json();
-    
-    for (let key in this.data) {
-      this.data[key]["key"] = key;
-      this.dataArr.push(this.data[key]);
-    }
+      this.data = rsp.json();
 
-    this.sortedArray = _.orderBy(this.dataArr, ['event_date'], ['asc']);
+      for (let key in this.data) {
+        this.data[key]["key"] = key;
+        this.dataArr.push(this.data[key]);
+      }
 
-    this.upcomingArr = _.filter(this.sortedArray, function( a ){
-      return  new Date() < new Date(a['event_date']);
+      this.sortedArray = _.orderBy(this.dataArr, ['event_date'], ['asc']);
+
+      this.upcomingArr = _.filter(this.sortedArray, function (event) {
+        return new Date() < new Date(event['event_date']);
       });
-      this.recentArr = _.filter(this.sortedArray, function( a ){
-        return  new Date() >= new Date(a['event_date']);
-        });
-    
-    console.log("recentArr ", this.recentArr);
-    console.log("dataArr ", this.dataArr);
-    console.log("sortedArr ", this.sortedArray);
-    console.dir(this.upcomingArr);
-  });
-}
+      this.recentArr = _.filter(this.sortedArray, function (event) {
+        return new Date() >= new Date(event['event_date']);
+      });
+
+      console.log("recentArr ", this.recentArr);
+      console.log("dataArr ", this.dataArr);
+      console.log("sortedArr ", this.sortedArray);
+      console.dir(this.upcomingArr);
+    });
+  }
 
   ngOnInit() { }
   //   public signOut(){

@@ -1,46 +1,48 @@
 <link href="https://fonts.googleapis.com/css?family=Spirax" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Spirax|Ubuntu" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Roboto+Mono|Spirax|Ubuntu" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Open+Sans+Condensed:300|PT+Sans+Narrow|Roboto+Mono|Spirax|Ubuntu" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Open+Sans+Condensed:300|PT+Sans+Narrow|Roboto+Mono|Spirax|Ubuntu"
+  rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
 <div class="heading">
   <div class="row">
     <div class="col-lg-3">
-      <a class="navbar-brand" routerLink="/admin">iSlot</a>
+      <a class="navbar-brand" routerLink="/admin" data-toggle="tooltip" title="Home">iSlot</a>
     </div>
-    
+
     <div class="col-lg-6">
       <h2>Admin Dashboard</h2>
     </div>
 
     <div class="col-lg-3">
-      <div class="col-lg-4">
+      <div class="col-lg-2">
+      </div>
+      <div class="col-lg-2">
         <a routerLink="event-creation" data-toggle="tooltip" title="Create Event">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
         </a>
       </div>
-      <div class="col-lg-4">
-        <a routerLink="analytics" data-toggle="tooltip" title="View Analytics">
-            <span class="glyphicon glyphicon-cloud"></span>
+      <div class="col-lg-2">
+        <a routerLink="analytics" data-toggle="tooltip" title="View Stats">
+          <span class="glyphicon glyphicon-stats"></span>
         </a>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-6">
         <div class="dropdown" style="float:right;">
           <a>
-            <button class="btn btn-primary dropdown-toggle" 
-                    type="button" 
-                    id="dropdownMenu1" 
-                    data-toggle="dropdown" 
-                    aria-haspopup="true" 
-                    aria-expanded="true">
-                      Menu
-                     <span class="caret"></span>
+            <button class="btn btn-primary btn-group-justified dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="true">
+              Menu
+              <span class="caret"></span>
             </button>
           </a>
           <div class="dropdown-content">
             <a routerLink="skills-management">Skill Management</a>
             <a routerLink="location-management">Location Management</a>
             <a routerLink="/">Change Password</a>
-            <a (click)="signOut()" >Logout</a>
+            <a (click)="signOut()">Logout</a>
           </div>
         </div>
       </div>
@@ -48,53 +50,43 @@
   </div>
 </div>
 
-
 <div class="row head">
-  <b>RECENT EVENTS</b>
+  <b style="color:red;">RECENT EVENTS</b>
 </div>
 
 <div class="row">
   <div *ngFor="let key of recentArr">
-    <div class="card" id="recentEvents">
-      <div class="card-body">
-        <h5 class="card-title">{{key.name}}</h5>
-        <p class="card-text">
-          {{key.description}}
-        </p>
-        <p class="card-text">
-          <b>Event date: </b> {{key.event_date}}
-        </p>
-        <p class="card-text" style="color: green;">
-          <b>Start time: </b>{{key.start_time}}
-        </p>
-        <p class="card-text" style="color: red;">
-          <b>End time: </b>{{key.end_time}}</p>
-        <a routerLink="/admin/view-event/{{key.key}}" class="btn btn-primary" role="button">Update</a>
+    <div class="event">
+      <div>
+        <div class="box recentEvent">
+          <h3>{{ key.name }}</h3>
+          <p style="font-family:'Josefin Sans', sans-serif;">{{ key.description }}</p>
+          <p><b>Event Date: {{ key.event_date }}</b></p>
+          <p style="color: green;"><b>Start Time: {{ key.start_time }}</b></p>
+          <p style="color: red;"><b>End Time: {{ key.end_time }}</b></p>
+          <a routerLink="/admin/update-event/{{key.key}}" class="btn btn-primary" role="button">Update</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <div class="row head">
-  <b>UPCOMING EVENTS</b>
+  <b style="color:green;">UPCOMING EVENTS</b>
 </div>
+
 <div class="row">
   <div *ngFor="let key of upcomingArr">
-    <div class="card" id="upcomingEvents">
-      <div class="card-body">
-        <h5 class="card-title">{{key.name}}</h5>
-        <p class="card-text">
-          {{key.description}}
-        </p>
-        <p class="card-text">
-          <b>Event date: </b> {{key.event_date}}
-        </p>
-        <p class="card-text" style="color: green;">
-          <b>Start time: </b>{{key.start_time}}
-        </p>
-        <p class="card-text" style="color: red;">
-          <b>End time: </b>{{key.end_time}}</p>
-        <a routerLink="/admin/view-event/{{key.key}}" class="btn btn-primary" role="button">View</a>
+    <div class="event">
+      <div>
+        <div class="box upcomingEvent">
+          <h5>{{ key.name }}</h5>
+          <p style="font-family:'Josefin Sans', sans-serif;">{{ key.description }}</p>
+          <p><b>Event Date: {{ key.event_date }} </b></p>
+          <p style="color: green;"><b>Start Time: {{ key.start_time }} </b></p>
+          <p style="color: red;"><b>End Time: {{ key.end_time }} </b></p>
+          <a routerLink="/admin/view-event/{{key.key}}" class="btn btn-primary" role="button">View</a>
+        </div>
       </div>
     </div>
   </div>

@@ -83,7 +83,7 @@
       "check-whitespace"
     ],
     "prefer-const": true,
-    "quotemark": [
+    "eventmark": [
       true,
       "single"
     ],

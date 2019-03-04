@@ -26,8 +26,10 @@
 
             <div class="col-lg-2" id="textField">
               <div class="fieldname">
-                <input type="text" class="form-control" autocomplete="off" name="name" id="name" formControlName="name" placeholder="Enter name">
-                <div id="nameError" class="alert alert-danger" *ngIf="interviewerFormGroup.get('name').touched && interviewerFormGroup.get('name').errors">Please enter your name</div>
+                <input type="text" class="form-control" autocomplete="off" name="name" id="name" formControlName="name"
+                  placeholder="Enter name">
+                <div id="nameError" class="alert alert-danger" *ngIf="interviewerFormGroup.get('name').touched && interviewerFormGroup.get('name').errors">Please
+                  enter your name</div>
               </div>
             </div>
           </div>
@@ -40,8 +42,10 @@
 
             <div class="col-lg-2" id="textField">
               <div class="fieldname">
-                <input type="text" class="form-control" autocomplete="off" id="email" name="email" formControlName="email" placeholder="Enter Email-id">
-                <div id="emailError" class="alert alert-danger" *ngIf="interviewerFormGroup.get('email').touched && interviewerFormGroup.get('email').errors">Please enter virtusa email-id</div>
+                <input type="text" class="form-control" autocomplete="off" id="email" name="email" formControlName="email"
+                  placeholder="Enter Email-id">
+                <div id="emailError" class="alert alert-danger" *ngIf="interviewerFormGroup.get('email').touched && interviewerFormGroup.get('email').errors">Please
+                  enter virtusa email-id</div>
               </div>
             </div>
           </div>
@@ -54,9 +58,10 @@
 
             <div class="col-lg-2" id="textField">
               <div class="fieldname">
-                <input type="password" ngModel class="form-control" autocomplete="off" id="password" name="password" formControlName="password"
-                  placeholder="Enter Password">
-                <div id="passwordError" class="alert alert-danger" *ngIf="interviewerFormGroup.get('password').touched && interviewerFormGroup.get('password').errors">Please enter Password</div>
+                <input type="password" ngModel class="form-control" autocomplete="off" id="password" name="password"
+                  formControlName="password" placeholder="Enter Password">
+                <div id="passwordError" class="alert alert-danger" *ngIf="interviewerFormGroup.get('password').touched && interviewerFormGroup.get('password').errors">Please
+                  enter Password</div>
               </div>
             </div>
           </div>
@@ -69,8 +74,10 @@
 
             <div class="col-lg-2" id="textField">
               <div class="fieldname">
-                <input type="text" class="form-control" id="mobile" autocomplete="off" name="mobile" formControlName="mobile" placeholder="Enter mobile number">
-                <div id="mobileError" class="alert alert-danger" *ngIf="interviewerFormGroup.get('mobile').touched && interviewerFormGroup.get('mobile').errors">Please enter mobile number</div>
+                <input type="text" class="form-control" id="mobile" autocomplete="off" name="mobile" formControlName="mobile"
+                  placeholder="Enter mobile number">
+                <div id="mobileError" class="alert alert-danger" *ngIf="interviewerFormGroup.get('mobile').touched && interviewerFormGroup.get('mobile').errors">Please
+                  enter mobile number</div>
               </div>
               <br>
             </div>
@@ -84,12 +91,13 @@
 
             <div class="col-lg-2" id="textField">
               <div class="fieldname">
-                <select multiple id="skills" class="forms-group form-control" formControlName="skills" name="skills"> 
+                <select multiple id="skills" class="forms-group form-control" formControlName="skills" name="skills">
                   <option *ngFor="let key of skillsArray">
                     {{key.id}}.{{key.name}}
-                  </option> 
+                  </option>
                 </select>
-                <div id="skillsError" class="alert alert-danger" *ngIf="interviewerFormGroup.get('skills').touched && interviewerFormGroup.get('skills').errors">Please select the skills!!</div>
+                <div id="skillsError" class="alert alert-danger" *ngIf="interviewerFormGroup.get('skills').touched && interviewerFormGroup.get('skills').errors">Please
+                  select the skills!!</div>
               </div>
             </div>
           </div>
@@ -98,10 +106,10 @@
           <div>
             <span> <b>To select multiple skills ctrl + click</b></span>
           </div>
-
           <div>
             <button type="reset" class="btn btn-primary">Reset</button>
-            <button type="submit" class="btn btn-primary" id="submitting" [disabled]="interviewerFormGroup.invalid">Sign Up</button>
+            <button type="submit" class="btn btn-primary" id="submitting" [disabled]="interviewerFormGroup.invalid">Sign
+              Up</button>
           </div>
           <br>
         </form>

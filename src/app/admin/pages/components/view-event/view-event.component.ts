@@ -12,12 +12,13 @@ export class ViewEventComponent implements OnInit {
   eventArr;
   eventKey;
   eventToBeViewed;
+  eventName: string;
   returnArray: Array<any>;
 
   constructor(public eventService: EventService, private route: ActivatedRoute, private router: Router) {
     this.eventArr = [];
     this.eventToBeViewed = [];
-    
+
     this.route.params.subscribe(params => {
       console.log("params", params.key);
       this.eventKey = params.key;
@@ -27,20 +28,25 @@ export class ViewEventComponent implements OnInit {
       for (let key in this.event) {
         this.event[key]["key"] = key;
         this.eventArr.push(this.event[key]);
-       }
-       console.log("event key assigned",this.eventKey)
-      for(let index in this.eventArr){
-           if(this.eventArr[index].key===this.eventKey){
-             this.eventToBeViewed.push(this.eventArr[index]);
-           } 
+      }
+      console.log("event key assigned", this.eventKey)
+      for (let index in this.eventArr) {
+        if (this.eventArr[index].key === this.eventKey) {
+          this.eventToBeViewed.push(this.eventArr[index]);
+        }
       }
 
       console.log("event key assigned", this.eventKey);
       console.log("event array", this.eventArr);
       console.log("data to be viewed", this.eventToBeViewed);
+      this.eventName = this.eventToBeViewed[0].name;
       this.returnArray = this.eventToBeViewed;
     }
     );
+  }
+
+  updateUrl() {
+    this.router.navigateByUrl('/admin/update-event/' + this.eventKey);
   }
 
   ngOnInit() {

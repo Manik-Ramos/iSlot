@@ -1,13 +1,15 @@
-import { Injectable } from '@angular/core'; 
+import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 
 import { Router, RouterLink } from '@angular/router';
+import { Interviewer } from '../interviewer/interviewer';
+import { Points } from '../interviewer/points';
 
 @Injectable(
-    //{
+  //{
   //providedIn: 'root'
-//}
+  //}
 )
 export class EventService {
   constructor(private httpservice: Http) { }
@@ -39,32 +41,37 @@ export class EventService {
     const url = this.mainUrl + `${entity}.json`;
     return this.httpservice.post(url, finalValue);
   }
-  addSkill(skill){
-    
-    this.httpservice.post("https://islot-app.firebaseio.com/skills.json",skill).subscribe(rsp=>{
-      this.skillsValue = rsp.json(),
-      console.log("skill",rsp.json().name);
-    });
 
-}
-addLocation(location){
-  
-  this.httpservice.post("https://islot-app.firebaseio.com/location.json",location).subscribe(rsp=>{
-    this.locationValue = rsp.json(),
-    console.log("location",rsp.json().name);
-  });
-
-}
-//   logout(){
-//     this.af.auth.signOut();
-//     console.log('logged out');
-//     this.router.navigateByUrl('/login');
-//  }
-
-  addNewInterviewer(entity,eventKey,slotId,pushArr){
-    const url = this.mainUrl + `${entity}`+'/'+`${eventKey}`+'/slots.json';
-    return this.httpservice.patch(url,pushArr[0]);
+  addEntity(entity:String,value:any) {
+    this.httpservice.post("https://islot-app.firebaseio.com/"+`${entity}.json`, value).subscribe(rsp => {});
   }
-  
+
+  deleteEntity(entity:String,key:String) {
+    const url=this.mainUrl + `${entity}/` + `${key}.json`;
+    this.httpservice.delete(url).subscribe(rsp => { }); 
+  }
+
+  //   logout(){
+  //     this.af.auth.signOut();
+  //     console.log('logged out');
+  //     this.router.navigateByUrl('/login');
+  //  }
+
+  addNewInterviewer(entity: String, eventKey: String, slotId: number, slotArray: Array<Interviewer>, index: number) {
+    const url = this.mainUrl + `${entity}` + '/' + `${eventKey}` + '/slots/' + slotId + '.json';
+    return this.httpservice.patch(url, slotArray);
+  }
+
+  updateInterviewer(entity: String, interviewerKey: String, interviewer) {
+    const url = this.mainUrl + `${entity}` + '/' + `${interviewerKey}` + '.json';
+    let interviews = interviewer.interviews;
+    return this.httpservice.patch(url, JSON.stringify({ interviews }));
+  }
+
+  updatePoints(entity: String, interviewerKey: string, points: Array<Points>) {
+    const url = this.mainUrl + `${entity}` + '/' + `${interviewerKey}` + '/eventPoints.json';
+    return this.httpservice.put(url, points);
+  }
+
 
 }

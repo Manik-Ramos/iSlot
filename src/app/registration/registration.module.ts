@@ -10,6 +10,8 @@ import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
+import { MatInputModule } from '@angular/material/input';
+import { ShowOnDirtyErrorStateMatcher, ErrorStateMatcher } from '@angular/material/core';
 
 export const config = {
   apiKey: "AIzaSyDi7NmM4rjI_D0uPpw4ht20-87Ko1TiJjU",
@@ -24,10 +26,16 @@ export const config = {
   imports: [
     CommonModule,
     FormsModule,
+    MatInputModule,
     AngularFireAuthModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(config),
     RouterModule.forChild(routes)
+  ],
+  providers: [
+    {
+      provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher
+    }
   ],
   declarations: [LandingPageComponent, LoginComponent, AdminRegistrationComponent, InterviewerRegistrationComponent]
 })

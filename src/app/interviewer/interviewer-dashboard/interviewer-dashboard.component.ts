@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 import { EventService } from '../../admin/event.service';
+import { Points } from '../points';
 
 
 @Component({
@@ -18,8 +19,8 @@ export class InterviewerDashboardComponent implements OnInit {
   userArr;
   totalScore;
   eventArray;
-  scores : Array<any>;
-  date =  new Date().getMonth();
+  scores: Array<number>;
+  date = new Date().getMonth();
   currentMonthScore;
 
   constructor(public eventService: EventService) {
@@ -30,47 +31,51 @@ export class InterviewerDashboardComponent implements OnInit {
     this.upcomingArr = [];
     this.recentArr = [];
     this.sortedArray = [];
-    this.scores = [1,2,3,4,5,6,7,8,9,10,11,12];
-    this.eventService.fetchData('events').subscribe((rsp) => {
-    this.data = rsp.json();
+    this.scores = [0,0,0,0,0,0,0,0,0,0,0,0];
     
-    this.currentMonthScore = this.scores[this.date];
+    this.eventService.fetchData('events').subscribe((rsp) => {
+      this.data = rsp.json();
+      this.currentMonthScore = this.scores[this.date];
 
-    for(let index in this.scores)
-      this.totalScore += this.scores[index];
-    console.log("this.totalScore",this.totalScore);
+      for (let key in this.data) {
+        this.data[key]["key"] = key;
+        this.dataArr.push(this.data[key]);
+      }
 
-    for (let key in this.data) {
-      this.data[key]["key"] = key;
-      this.dataArr.push(this.data[key]);
-    }
+      this.sortedArray = _.orderBy(this.dataArr, ['event_date'], ['asc']);
 
-
-
-    this.sortedArray = _.orderBy(this.dataArr, ['event_date'], ['asc']);
-    this.upcomingArr = _.filter(this.sortedArray, function( a ){
-      return  new Date() < new Date(a['event_date']);
+      this.upcomingArr = _.filter(this.sortedArray, function (a) {
+        return new Date() < new Date(a['event_date']);
       });
-      this.recentArr = _.filter(this.sortedArray, function( a ){
-        return  new Date() >= new Date(a['event_date']);
-        });
-    console.log("recentArr ", this.recentArr);
-    console.log("dataArr ", this.dataArr);
-    console.log("sortedArr ", this.sortedArray);
-    console.dir(this.upcomingArr);
-  });
-   this.eventService.fetchData('user').subscribe((rsp) => {
-      this.user = rsp.json();
-      for (let key in this.user){
-        if(this.user[key].userId == 'q7daZSPbZWfgQrjgkXJVEqalSH72')
-        this.userArr.push(this.user[key]);
-      }   
-      console.log("userArr ",this.userArr);
-    });
-   
-}
 
-  ngOnInit() { }
+      this.recentArr = _.filter(this.sortedArray, function (a) {
+        return new Date() >= new Date(a['event_date']);
+      });
+    });
+  }
+
+  ngOnInit() {
+    this.eventService.fetchData('user')
+      .subscribe((rsp) => {
+        this.user = rsp.json();
+        for (let key in this.user) {
+          if (this.user[key].email === localStorage.getItem('email')) {
+            this.user[key]["key"] = key;
+            this.userArr.push(this.user[key]);
+          }
+        }
+        let eventPoints:Array<Points> = this.userArr[0].eventPoints;
+        for(var index of eventPoints) {
+          let date: string = index.eventDate;
+          let stringMonth: string = date.substr(5,2); 
+          let month : number = +stringMonth;
+          this.scores[month-1] += index.points;
+        }
+
+        for (let index in this.scores) 
+          this.totalScore += this.scores[index];
+      });
+  }
   //   public signOut(){
   //     this.eventService.logout();
   //   }

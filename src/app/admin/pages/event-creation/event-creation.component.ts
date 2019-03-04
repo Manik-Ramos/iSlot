@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { Skill } from '../../../interviewer/skill';
 @Component({
   selector: 'app-event-creation',
   templateUrl: './event-creation.component.html',
@@ -13,15 +14,25 @@ import { routerNgProbeToken } from '@angular/router/src/router_module';
 export class EventCreationComponent implements OnInit {
   events: any;
   event;
+  locations:any;
+  locationsData;
+  skillsData;
   eventsData: any;
   eventEnrollment: any;
   interviewersArray;
-
+  eventFormGroup: FormGroup;
+  skills:any;
+  eventSuccess;
+  
   constructor(private eventService: EventService, private httpservice: Http) {
     this.event = {};
     this.events = [];
     this.eventEnrollment = [];
     this.eventsData = {};
+    this.skills = []; 
+    this.skillsData = {};
+    this.locationsData = {};
+    this.locations = [];
     this.eventFormGroup = new FormGroup({
       name: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
@@ -38,11 +49,23 @@ export class EventCreationComponent implements OnInit {
       slot4EndTime: new FormControl('', [Validators.required]),
       location: new FormControl('', [Validators.required]),
       skills: new FormControl('', [Validators.required])
+    });
+}
+
+  ngOnInit() {
+    this.eventService.fetchData('skills').subscribe(skill => {
+      this.skillsData = skill.json();
+      for (let key in this.skillsData)
+        this.skills.push(this.skillsData[key]);
+    });
+ 
+    this.eventService.fetchData('location').subscribe(rsp => {
+      this.locationsData = rsp.json();
+      for(let key in this.locationsData) {
+        this.locations.push(this.locationsData[key]);
+      }
     })
   }
-  eventFormGroup: FormGroup;
-
-  ngOnInit() { }
 
   onSubmit(formData) {
     console.log(formData);
@@ -115,6 +138,8 @@ export class EventCreationComponent implements OnInit {
       }
       console.log(this.event);
       this.eventService.Addevent(this.event);
+      formData.reset();
     })
+    this.eventSuccess = '<div class="alert alert-success" *ngIf="eventFormGroup.valid && eventFormGroup.submit">Event Created Successfully!!</div>'
   }
 }

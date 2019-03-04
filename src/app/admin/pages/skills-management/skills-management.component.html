@@ -1,28 +1,45 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid" id="tile">
-    <div class="navbar-header">
-      <a class="navbar-brand" routerLink="/admin">iSlot</a>
-    </div>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a routerLink="skills-management"><span class="glyphicon glyphicon-option-vertical"></span></a></li>
-    </ul>
-  </div>
-</nav>
-<form [formGroup]="skills1" #formData='ngForm' (ngSubmit)="onSubmit(formData)">
-  <div class="form-group">
-    <input type="text" class="form-control" id="name" name="name" (ngmodel)="name" formControlName="name" placeholder="Add a new skill">
-    <!-- <div class="alert alert-danger" *ngIf="skills.get('name').touched && skills.get('mySkill').invalid">Please enter the skill
-    </div> -->
-    <input class="button" type="submit" value="Add">
-  </div>
+<link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Spirax|Ubuntu" rel="stylesheet">
 
+<div class="heading">
   <div class="row">
-    <div class="item col-lg-3" id="tile" *ngFor="let key of skillsarray">
-      <button type="button" class="btn btn-default btn-sm">
-        <span class="glyphicon glyphicon-trash"></span>
-      </button>
-      <span>{{key.name}}</span>
-
+    <div class="col-lg-3">
+      <a class="navbar-brand" routerLink="/admin" data-toggle="tooltip" title="Home">iSlot</a>
+    </div>
+    <div class="col-lg-6">
+      <h2>Skills Management</h2>
     </div>
   </div>
-</form>
+</div>
+<br>
+<div class="container">
+  <form [formGroup]="skills1" #formData='ngForm'>
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <div class="form-group">
+          <input type="text" class="form-control" id="name" name="name" (ngmodel)="name" autocomplete="off"
+            formControlName="name" placeholder="Add a new skill">
+          <div class="alert alert-danger" *ngIf="skills1.get('name').touched && skills1.get('name').invalid">Please
+            enter a skill </div>
+            <br>
+          <!-- <input class="button" type="submit" value="Add"> -->
+          <button class="btn btn-primary" style="width: 80px;" (click)="onSubmit(formData)">Add</button>
+        </div>
+      </div>
+      <div class="col-lg-4"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-10">
+        <div class="item col-lg-3" id="tile" *ngFor="let key of skillsarray" data-toggle="tooltip"
+          title="{{ key.name }}">
+          <button type="button" class="glyphicon glyphicon-trash btn btn-primary" data-toggle="tooltip"
+            title="Delete Skill" (click)="deleteSkill(key)">
+          </button>
+          <span>{{ key.name }}</span>
+        </div>
+      </div>
+      <div class="col-lg-1"></div>
+    </div>
+  </form>
+</div>

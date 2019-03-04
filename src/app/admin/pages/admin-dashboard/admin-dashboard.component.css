@@ -1,146 +1,204 @@
-.navbar-brand{
-    font-size:30px;
+.heading {
+    background-color: rgb(13, 32, 41);
+    height: 75px;
+}
+
+.navbar-brand {
+    font-size: 30px;
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
     font-family: 'Ubuntu', sans-serif;
-  }
-  
-  .heading{
-    background-color:rgb(13, 32, 41);
-    height: 75px;
-  }
-  
-  .col-lg-8 {
-    text-align: center;
-    width:1500px;
-  }
-  .col-lg-4 {
+}
+
+h2 {
+  color: #23527c;
+  text-align: center;
+  font-family: 'IM Fell English SC', serif;
+}
+
+.col-lg-4 {
     height: 60px;
     text-align: right;
-  }
-  .glyphicon {
+}
+
+.btn-group-justified {
+  width: 160px;
+}
+
+.glyphicon {
     margin-top: 15px;
     margin-right: 15px;
-  }
-  h1{
-    text-align: center;
-    margin-left:150px;
-   }
-  
-  h2 {
-    color: #23527c;
-    text-align: center;
-    font-family: 'IM Fell English SC', serif;
-  }
-  
-  .row.head{
-    font-family: 'PT Sans Narrow', sans-serif;
-    font-size: 20px;
-    width: 1500px;
-    margin-left:50px;
-    margin-top: 20px;
-  }
-  
-  b {
-    font-family: 'IM Fell English SC', serif;
-  }
-  
-  .card{  
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    border-radius: 10px;
-    margin-left:60px;
-    margin-top:50px;
-    width:250px;
-  }
-  
-  .card:hover{
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    cursor: pointer;
-  }
-  
-  .card-body {
-    width: 220px;
-    margin: 10px 10px 10px 10px;
-  }
-  
-  .card-text {
-    font-family: 'Roboto Mono', monospace;
-    color: #7F2751;
-  }
-  
-  .card-title {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
-    text-align: center;
-    color: rgb(69, 95, 226);
-  }
-  
-  .dropbtn {
-    color: #23527c;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-  }
-  
-  .dropdown {
+}
+
+.dropdown {
     position: relative;
     display: inline-block;
     margin-top: 10px;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    font-family: 'Ubuntu', sans-serif;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  } 
-  
-  .fa-ellipsis-v
-  {
-    padding: 10px; 
-    margin-right: 10px;
-    margin-top: 15px;
-    font-size:20px;
-    cursor: pointer;
-  }
-  .fa-chart-line
-  {
-    padding: 10px;
-    margin-top: 20px;
-    font-size:20px;
-  }
-  .fa-plus-circle{
-    padding: 10px;
-    margin-top: 20px;
-    font-size:20px;
-  } 
-  
-  #upcomingEvents {
-    border: 2px solid green;
-  }
-  
-  #recentEvents {
-    border: 2px solid red;
-    border-radius: 10px;
-  }
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.row.head b{
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  font-size: 26px;
+  width: 150px;
+  margin-left: 50px;
+  margin-top: 40px;
+}
+
+b {
+    font-family: 'IM Fell English SC', serif;
+}
+
+.event {
+  width: 360px;
+  min-height: 220px;
+  display: grid;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.box {
+  margin: 0px 0px 20px 30px;
+  border-radius: 35px;
+  border: 2px solid black;
+}
+
+.event .box {
+  position: relative;
+  width: 360px; 
+  background: #fff;
+  overflow: hidden;
+  transition: 0.5s;
+  z-index: 2;
+  box-sizing: border-box;
+  padding: 30px;
+  box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+.event .box:hover {
+  border: 2px solid red;
+}
+
+.event .box p {
+  margin: 5px 0 5px 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+.event .box:hover p {
+  color: #fff;
+}
+.event .box:hover h5 {
+  color: #fff;
+}
+.event .box:hover b {
+  color: #fff;
+}
+.event .box h2 {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.event .box:hover h2 {
+  color: #fff;
+}
+
+.event .box:hover {
+  box-shadow: -15px 37.5px 75px rgba(0, 0, 0, 0.4);
+}
+
+.event .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 1;
+  transition: 0.5s;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+.event .box.box1:hover~.bg,
+.event .box.box1:hover {
+  opacity: 1;
+  background: linear-gradient(#03A9F4, #E91E63);
+}
+
+.event .box.upcomingEvent:hover~.bg,
+.event .box.upcomingEvent:hover {
+  opacity: 1;
+  background: linear-gradient(#FFC107, #19fd36);
+}
+
+.event .box.recentEvent:hover~.bg,
+.event .box.recentEvent:hover {
+  opacity: 1;
+  background: linear-gradient(#FFC107, #E91E63);
+}
+
+.event .box:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+.event .box:after {
+  position: absolute;
+  content: "";
+  bottom: 10%;
+  right: 10%;
+  opacity: .1;
+  background: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  filter: invert(1);
+}
+
+.event .box:hover:after {
+  filter: invert(0);
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  color: green;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+h3 {
+  font-family: 'Coiny',cursive;
+}
